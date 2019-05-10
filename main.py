@@ -1,6 +1,6 @@
 import numpy as np
 
-earth_station_long = -97.3301*np.pi/180
+earth_station_long = float(input("Enter Earth Station Longitude "))* -1 *np.pi/180
 earth_station_lat = 37.6872*np.pi/180
 earth_radius = 6371
 sat_subpoint_long = -123*np.pi/180
@@ -21,4 +21,4 @@ antenna_distance = np.sqrt(earth_radius * earth_radius + a_gso * a_gso - 2 * a_g
 print(antenna_distance)
 
 antenna_elevation = np.arccos(a_gso/antenna_distance*np.sin(angle_b))
-print(antenna_elevation *180/np.pi)
+print(antenna_elevation * 180 /np.pi)
