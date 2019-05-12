@@ -99,4 +99,4 @@ magnitude_normal_propagation_vec = np.sqrt(np.square(normal_propagation_vec[0])
 
 # epsilon = arccsin(p dot f/|f|)
 angle_polarization = np.arcsin(normal_propagation_vec_unit_polarization_vector / magnitude_normal_propagation_vec)
-print("angle of polarization " + str(round(angle_polarization * 180 / np.pi, 2)))
+print("angle of polarization " + str(round(angle_polarization * 180 / np.pi, 2)) + "°")
