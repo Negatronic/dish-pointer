@@ -33,13 +33,13 @@ antenna_elevation = np.arccos(a_gso/antenna_distance*np.sin(angle_b))
 print("Antenna look angle " + str(round(antenna_elevation * 180 / np.pi, 1)) + "°")
 
 # Limit of Visibility, this is what satellites the dish can look at
-angle_S_lov = np.arcsin(earth_radius/a_gso * np.sin(95 * np.pi / 180))
-angle_b_lov = ((180 - 95) * np.pi / 180) - angle_S_lov
-angle_B_lov = np.arccos(np.cos(angle_b_lov)/np.cos(earth_station_lat))
-angle_lov_east = (earth_station_long * 180 / np.pi) + (angle_B_lov * 180 / np.pi)
-angle_lov_west = (earth_station_long * 180 / np.pi) - (angle_B_lov * 180 / np.pi)
+angle_S_lim_of_view = np.arcsin(earth_radius / a_gso * np.sin(95 * np.pi / 180))
+angle_b_lim_of_view = ((180 - 95) * np.pi / 180) - angle_S_lim_of_view
+angle_B_lim_of_view = np.arccos(np.cos(angle_b_lim_of_view) / np.cos(earth_station_lat))
+angle_lim_of_view_east = (earth_station_long * 180 / np.pi) + (angle_B_lim_of_view * 180 / np.pi)
+angle_lim_of_view_west = (earth_station_long * 180 / np.pi) - (angle_B_lim_of_view * 180 / np.pi)
 
-if angle_lov_west <= (sat_subpoint_long * 180 / np.pi) <= angle_lov_east:
+if angle_lim_of_view_west <= (sat_subpoint_long * 180 / np.pi) <= angle_lim_of_view_east:
     print("Satellite is within arc of visibility of dish.")
 else:
     print("Satellite is outside of arc of visibility of dish")
